@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chessboard</title>
+</head>
+<body>
+    <script>
+        // Function to create and append a label with the provided data
+        function print(data) {
+            const label = document.createElement('label');
+            label.textContent = data;
+            document.body.appendChild(label);
+        }
+
+        // Function to create and append a <br> element
+        function newLine() {
+            const br = document.createElement('br');
+            document.body.appendChild(br);
+        }
+
+        // Declare board size
+        const board_size = 8; // You can adjust the size here
+
+        // Generate the chessboard
+        function createChessboard(size) {
+            for (let row = 0; row < size; row++) {
+                let rowStr = ''; // Create a string for the current row
+                for (let col = 0; col < size; col++) {
+                    // Alternate between '*' and '#' based on the position
+                    if ((row + col) % 2 === 0) {
+                        rowStr += '*';
+                    } else {
+                        rowStr += '#';
+                    }
+                }
+                print(rowStr); // Print the row
+                newLine(); // Go to the next line
+            }
+        }
+
+        // Call the function to create the chessboard
+        createChessboard(board_size);
+    </script>
+</body>
+</html>
